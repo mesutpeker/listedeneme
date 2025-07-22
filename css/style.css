@@ -1,0 +1,801 @@
+body {
+    padding-top: 2rem;
+    background-color: #f8f9fa;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #e4eafc 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.container {
+    max-width: 900px;
+    padding: 0 15px;
+}
+.card {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border: none;
+    transition: all 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.2);
+}
+.table {
+    margin-bottom: 0;
+    table-layout: auto;
+    width: 100%;
+}
+.table th {
+    font-weight: 600;
+    color: #4a4a4a;
+    border-top: none;
+    background-color: #f8f9fa;
+    padding: 0.75rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+.table td {
+    position: relative;
+    vertical-align: middle;
+    padding: 0.75rem;
+    border-top: 1px solid #f1f1f1;
+    font-size: 0.95rem;
+}
+.table tr {
+    position: relative;
+    transition: all 0.2s ease;
+}
+.table tr:hover {
+    background-color: #f9fbff !important;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.02);
+}
+.table tr .row-copy {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+.table tr:hover .row-copy {
+    visibility: visible;
+    opacity: 1;
+}
+.row-copy {
+    background-color: rgba(108, 99, 255, 0.1);
+    color: #6c63ff;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all 0.2s ease;
+}
+.row-copy:hover, .row-copy:focus {
+    background-color: rgba(108, 99, 255, 0.2);
+    transform: scale(1.1);
+    outline: none;
+}
+.row-copy:focus {
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.4);
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(108, 99, 255, 0.02);
+}
+.hidden {
+    display: none;
+}
+.spinner-border {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+#upload-area {
+    border: 2px dashed #6c63ff;
+    border-radius: 15px;
+    padding: 2rem 1rem;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    background-color: rgba(108, 99, 255, 0.03);
+}
+#upload-area:hover, #upload-area.dragover {
+    border-color: #6c63ff;
+    background-color: rgba(108, 99, 255, 0.1);
+}
+#error-message {
+    color: #dc3545;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(220, 53, 69, 0.1);
+}
+.class-title {
+    background-color: #6c63ff;
+    padding: 15px;
+    margin-bottom: 0;
+    border-radius: 15px 15px 0 0;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(108, 99, 255, 0.2);
+}
+.class-title .title-text {
+    margin-bottom: 10px;
+    text-align: center;
+}
+.class-title .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+}
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 0.4rem 0.6rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.btn-numbers {
+    background-color: #FF6B6B;
+    border-color: #FF6B6B;
+    color: white;
+}
+.btn-numbers:hover {
+    background-color: #ff5252;
+    border-color: #ff5252;
+    color: white;
+}
+.btn-names {
+    background-color: #48B7D2;
+    border-color: #48B7D2;
+    color: white;
+}
+.btn-names:hover {
+    background-color: #3a9eb9;
+    border-color: #3a9eb9;
+    color: white;
+}
+.btn-surnames {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    color: white;
+}
+.btn-surnames:hover {
+    background-color: #3e9142;
+    border-color: #3e9142;
+    color: white;
+}
+.btn-fullnames {
+    background-color: #FFA117;
+    border-color: #FFA117;
+    color: white;
+}
+.btn-fullnames:hover {
+    background-color: #f09000;
+    border-color: #f09000;
+    color: white;
+}
+.btn-all {
+    background-color: #9C27B0;
+    border-color: #9C27B0;
+    color: white;
+    font-weight: 600;
+}
+.btn-all:hover {
+    background-color: #8e24aa;
+    border-color: #8e24aa;
+    color: white;
+}
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.debug-info {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    display: none;
+}
+.even-row {
+    background-color: rgba(108, 99, 255, 0.03);
+}
+.bi {
+    margin-right: 5px;
+    font-size: 0.9rem;
+}
+h1 {
+    color: #fbf9f9;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-shadow: 0px 2px 3px rgba(0,0,0,0.1);
+}
+.card-body {
+    padding: 1.5rem;
+}
+#no-results {
+    text-align: center;
+    padding: 3rem;
+    background-color: #fff;
+}
+#no-results p {
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+#results-container {
+    perspective: 1000px;
+}
+.header-section {
+    background: linear-gradient(45deg, #6c63ff, #5a52d6);
+    color: white;
+    padding: 2rem 0 1.5rem;
+    border-radius: 0 0 20% 20% / 30px;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+}
+.header-title {
+    font-size: 2rem;
+    font-weight: 800;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.5rem;
+}
+.header-subtitle {
+    opacity: 0.9;
+    font-weight: 300;
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+/* Mobil uyumluluk ayarları */
+@media (max-width: 767.98px) {
+    .header-section {
+        padding: 1.5rem 0 1rem;
+    }
+    .header-title {
+        font-size: 1.6rem;
+    }
+    .header-subtitle {
+        font-size: 0.9rem;
+    }
+    #upload-area {
+        padding: 1.5rem 1rem;
+    }
+    .class-title {
+        padding: 10px;
+    }
+    .class-title .button-group {
+        width: 100%;
+        justify-content: center;
+    }
+    .btn {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .table th, .table td {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+    .card-body {
+        padding: 1rem;
+    }
+    .row-copy {
+        width: 28px;
+        height: 28px;
+        right: 5px;
+    }
+}
+
+/* Küçük ekranlar için ek düzenlemeler */
+@media (max-width: 575.98px) {
+    .header-title {
+        font-size: 1.4rem;
+    }
+    .btn {
+        padding: 0.25rem 0.4rem;
+        font-size: 0.75rem;
+        margin-bottom: 5px;
+    }
+    .bi {
+        font-size: 0.8rem;
+        margin-right: 3px;
+    }
+    .class-title .button-group {
+        gap: 3px;
+    }
+    .table th, .table td {
+        padding: 0.4rem;
+        font-size: 0.8rem;
+    }
+    .row-copy {
+        width: 24px;
+        height: 24px;
+        right: 3px;
+    }
+}
+
+/* Sınıf Oturma Planı Stilleri */
+.seating-plan {
+    margin: 20px 0;
+}
+
+.classroom {
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 400px;
+}
+
+.teacher-area {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.teacher-desk {
+    background-color: #FF5722;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(255, 87, 34, 0.3);
+}
+
+.teacher-desk i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.student-desks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.desk-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.desk-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.desk-number {
+    background-color: #6c63ff;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 12px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.student-seats {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+}
+
+.student-seat {
+    flex: 1;
+    min-height: 45px;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 5px;
+    text-align: center;
+}
+
+.student-seat.occupied {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+}
+
+.student-seat.occupied:hover {
+    background-color: #bbdefb;
+    border-color: #1976d2;
+}
+
+.student-seat.empty {
+    background-color: #fafafa;
+    border-color: #e0e0e0;
+    color: #999;
+}
+
+.student-seat.empty:hover {
+    background-color: #f0f0f0;
+    border-color: #bdbdbd;
+}
+
+.student-seat.selected {
+    background-color: #fff3e0 !important;
+    border-color: #ff9800 !important;
+    box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.3);
+}
+
+.student-name {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #333;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.empty-seat {
+    font-size: 10px;
+    color: #999;
+    font-style: italic;
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+    .student-desks {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .desk-row {
+        margin-bottom: 8px;
+    }
+    
+    .student-name {
+        font-size: 10px;
+    }
+    
+    .teacher-desk {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .classroom {
+        padding: 15px;
+    }
+    
+    .student-seat {
+        min-height: 35px;
+        padding: 3px;
+    }
+    
+    .student-name {
+        font-size: 9px;
+    }
+    
+    .desk-number {
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
+    }
+}
+
+/* Yazdırma Başlığı Modal Stilleri */
+#printTitleModal .modal-content {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#printTitleModal .modal-header {
+    border-radius: 10px 10px 0 0;
+}
+
+#printTitleModal .modal-footer {
+    border-radius: 0 0 10px 10px;
+    border-top: 1px solid #e9ecef;
+}
+
+#printTitleModal .form-control {
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+#printTitleModal .form-control:focus {
+    border-color: #FF5722;
+    box-shadow: 0 0 0 0.2rem rgba(255, 87, 34, 0.25);
+}
+
+#printTitleModal .btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#printTitleModal .btn-success:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+#printTitleModal .btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+}
+
+/* PDF Rehber Modal Stilleri */
+#pdfGuideModal .modal-dialog {
+    max-width: 1200px;
+}
+
+.step-card {
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.step-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.step-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.step-number {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.step-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.step-content {
+    padding: 20px;
+}
+
+.step-image-container {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    border: 2px dashed #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.step-image-container:hover {
+    border-color: #007bff;
+    background: #e3f2fd;
+}
+
+.step-image {
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-height: 500px;
+    min-height: 300px;
+    width: 100%;
+    object-fit: contain;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+}
+
+.step-instructions {
+    padding-left: 20px;
+}
+
+.step-instructions p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.step-instructions .alert {
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.step-instructions-inline {
+    margin-top: 15px;
+    padding: 15px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+}
+
+.step-instructions-inline p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #495057;
+}
+
+.step-instructions-inline .bi {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.highlight {
+    background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #2e7d32;
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+    .step-instructions {
+        padding-left: 0;
+        margin-top: 15px;
+    }
+    
+    .step-header {
+        text-align: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .step-number {
+        margin: 0 auto;
+    }
+    
+    #pdfGuideModal .modal-dialog {
+        margin: 10px;
+        max-width: none;
+    }
+}
+
+/* Buton hover efektleri */
+.btn-outline-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Modal başlık stili */
+#pdfGuideModal .modal-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 0;
+}
+
+#pdfGuideModal .modal-title {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Özet kutusu */
+#pdfGuideModal .alert-success {
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* Adım numaralandırma animasyonu */
+.step-number {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+/* Resim hover efekti */
+.step-image:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+/* Modal footer düzenlemesi */
+#pdfGuideModal .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Nasıl İndirilir butonu animasyonu */
+.pulse-btn {
+    animation: pulse-glow 2s infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.pulse-btn:hover {
+    animation: none;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.8), 0 0 30px rgba(255, 193, 7, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+    }
+}
+
+.pulse-btn i {
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+} 
